@@ -5,7 +5,8 @@ import (
 	"math"
 	"onehoax/go_tour/basic/flowcontrol"
 	"onehoax/go_tour/basic/function"
-	mymethod "onehoax/go_tour/methodinterface"
+	"onehoax/go_tour/methodinterface/myinterface"
+	"onehoax/go_tour/methodinterface/mymethod"
 	"onehoax/go_tour/type/myarray"
 	"onehoax/go_tour/type/mymap"
 	"onehoax/go_tour/type/mypointer"
@@ -145,4 +146,31 @@ func main() {
 
 	mymethod.ScaleFunc(&vertex, 2.0)
 	fmt.Println(vertex)
+
+	fmt.Println()
+
+	fmt.Println("INTERFACES")
+
+	myinterface.InterfaceImplement()
+
+	fmt.Println()
+	fmt.Println("DYNAMIC TYPES")
+	myinterface.Test()
+
+	fmt.Println()
+	fmt.Println("EMPTY INTERFACES")
+	myinterface.EmptyInterface()
+
+	fmt.Println()
+	fmt.Println("TYPE ASSERTION")
+	myinterface.Assert()
+
+	fmt.Println()
+	fmt.Println("TYPE SWITCH")
+	myinterface.TestType()
+
+	fmt.Println()
+	fmt.Println("STRINGER")
+	myinterface.PrintPpl()
+	myinterface.PrintIP()
 }
