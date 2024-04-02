@@ -5,6 +5,7 @@ import (
 	"math"
 	"onehoax/go_tour/basic/flowcontrol"
 	"onehoax/go_tour/basic/function"
+	"onehoax/go_tour/generic/mygeneric"
 	"onehoax/go_tour/methodinterface/myinterface"
 	"onehoax/go_tour/methodinterface/mymethod"
 	"onehoax/go_tour/type/myarray"
@@ -189,4 +190,8 @@ func main() {
 	fmt.Println("READER")
 	myinterface.Reader()
 	myinterface.Readcustom()
+	fmt.Println()
+
+	fmt.Println("################# generics #################")
+	mygeneric.Compare()
 }
