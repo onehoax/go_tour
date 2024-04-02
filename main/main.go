@@ -5,6 +5,7 @@ import (
 	"math"
 	"onehoax/go_tour/basic/flowcontrol"
 	"onehoax/go_tour/basic/function"
+	mymethod "onehoax/go_tour/methodinterface"
 	"onehoax/go_tour/type/myarray"
 	"onehoax/go_tour/type/mymap"
 	"onehoax/go_tour/type/mypointer"
@@ -116,8 +117,32 @@ func main() {
 
 	fmt.Println()
 
-	f := function.Fib()
+	var f func() int = function.Fib()
 	for i := 0; i < 10; i++ {
 		fmt.Println(f())
 	}
+
+	fmt.Println()
+
+	fmt.Println("################# methods & interfaces #################")
+	vertex := mymethod.Vertex{X: 3, Y: 4}
+	fmt.Println(vertex.AbsReceiver())
+	fmt.Println(mymethod.AbsNoReceiver(vertex))
+	var myfloat mymethod.MyFloat = mymethod.MyFloat(-math.Sqrt2)
+	fmt.Println(myfloat.AbsMyFloat())
+
+	fmt.Println("Method with value reciver works on a copy of arg")
+	fmt.Println(vertex)
+	vertex.ScaleValue(5.0)
+	fmt.Println(vertex)
+
+	fmt.Println("Method with pointer reciver works on the original arg object")
+	fmt.Println(vertex)
+	vertex.ScalePointer(5.0) // Go interprets as `(&vertex).ScalePointer(5.0)` for convinience
+	fmt.Println(vertex)
+	(&vertex).ScalePointer(5.0)
+	fmt.Println(vertex)
+
+	mymethod.ScaleFunc(&vertex, 2.0)
+	fmt.Println(vertex)
 }
