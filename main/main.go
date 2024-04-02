@@ -173,4 +173,20 @@ func main() {
 	fmt.Println("STRINGER")
 	myinterface.PrintPpl()
 	myinterface.PrintIP()
+
+	fmt.Println()
+	fmt.Println("ERROR")
+	if err := myinterface.RunError(); err != nil {
+		fmt.Println(err)
+	}
+
+	r, e := myinterface.Divide(10, 2)
+	fmt.Println(r, e)
+	r, e = myinterface.Divide(10, 0)
+	fmt.Println(r, e)
+
+	fmt.Println()
+	fmt.Println("READER")
+	myinterface.Reader()
+	myinterface.Readcustom()
 }
