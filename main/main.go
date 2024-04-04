@@ -5,6 +5,10 @@ import (
 	"math"
 	"onehoax/go_tour/basic/flowcontrol"
 	"onehoax/go_tour/basic/function"
+	"onehoax/go_tour/concurrency/mychannel"
+	"onehoax/go_tour/concurrency/mygoroutine"
+	"onehoax/go_tour/concurrency/mymutex"
+	"onehoax/go_tour/concurrency/myselect"
 	"onehoax/go_tour/generic/mygeneric"
 	"onehoax/go_tour/methodinterface/myinterface"
 	"onehoax/go_tour/methodinterface/mymethod"
@@ -194,4 +198,30 @@ func main() {
 
 	fmt.Println("################# generics #################")
 	mygeneric.Compare()
+
+	fmt.Println()
+
+	fmt.Println("################# concurrency #################")
+	go mygoroutine.Say("world")
+	mygoroutine.Say("hello")
+
+	fmt.Println()
+	fmt.Println("CHANNELS")
+	mychannel.RunSum()
+
+	fmt.Println("BUFFERED CHANNEL")
+	mychannel.RunBufferChannel()
+
+	fmt.Println("RANGE & CLOSE")
+	mychannel.RunFib()
+
+	fmt.Println("SELECT")
+	myselect.RunSelect()
+
+	fmt.Println()
+	myselect.Tick()
+
+	fmt.Println()
+	fmt.Println("MUTEX")
+	mymutex.Run()
 }
